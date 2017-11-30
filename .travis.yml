@@ -1,0 +1,19 @@
+language: java
+sudo: required
+
+addons:
+  sonarcloud:
+    organization: "larsbaertschi-github"
+
+jobs:
+  include:
+    - stage: tests
+      script:
+        - "mvn jacoco:prepare-agent surefire:test jacoco:report sonar:sonar"
+    - stage: build
+      script:
+        - "mvn clean compile assembly:single"
+
+stages:
+  - tests
+  - build
