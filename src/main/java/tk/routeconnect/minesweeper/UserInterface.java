@@ -1,9 +1,13 @@
 package tk.routeconnect.minesweeper;
 
+import tk.routeconnect.minesweeper.benutzereingabe.BenutzerEingabe;
+import tk.routeconnect.minesweeper.benutzereingabe.EingabeFehler;
+
 import java.util.Scanner;
 
 class UserInterface {
-    Scanner scanner;
+    private Scanner scanner;
+    private InputProcessor processor = new InputProcessor();
 
     UserInterface() {
         scanner = new Scanner(System.in);
@@ -12,6 +16,13 @@ class UserInterface {
     void read() {
         if (scanner.hasNext()) {
             String input = scanner.nextLine();
+
+            try {
+                BenutzerEingabe eingabe = BenutzerEingabe.parse(input);
+                processor.processInput(eingabe);
+            } catch (EingabeFehler e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
