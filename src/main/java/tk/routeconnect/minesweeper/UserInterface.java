@@ -5,6 +5,9 @@ import tk.routeconnect.minesweeper.benutzereingabe.EingabeFehler;
 
 import java.util.Scanner;
 
+/**
+ * Das UserInterface ist für die Interaktion mit dem User zuständig
+ */
 class UserInterface {
     private Scanner scanner;
     private InputProcessor processor = new InputProcessor();
@@ -13,6 +16,9 @@ class UserInterface {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Die read Methode liest eine Benutereingabe ein und validiert diese, dies so lang, bis eine gültige Eingabe vorliegt
+     */
     void read() {
         if (scanner.hasNext()) {
             String input = scanner.nextLine();

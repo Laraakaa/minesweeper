@@ -4,10 +4,18 @@ import tk.routeconnect.minesweeper.benutzereingabe.BenutzerEingabe;
 import tk.routeconnect.minesweeper.benutzereingabe.EingabeFehler;
 import tk.routeconnect.minesweeper.spielfeld.Spielfeld;
 
+/**
+ * Der InputProcessor handhabt Benutzereingaben
+ */
 class InputProcessor {
 
     Spielfeld spielfeld = new Spielfeld();
 
+    /**
+     * Die Methode processInput nimmt Benuteranweisungen entgegen und verarbeitet sie
+     * @param eingabe Hier ist der Input des Benutzer: T (Test) oder M (Markieren) sowie nachfolgend X und Y Koordinaten angeben
+     * @throws EingabeFehler Wird ein Eingabewert eingegeben welcher nicht verarbeitet werden kann, wird ein EingabeFehler geworfen
+     */
     void processInput(BenutzerEingabe eingabe) throws EingabeFehler {
         switch (eingabe.getTyp()) {
             case T:
