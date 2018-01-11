@@ -30,7 +30,7 @@ public class BenutzerEingabe {
 
         int y;
         try {
-            y = Integer.valueOf(xStr);
+            y = Integer.valueOf(yStr);
         } catch (NumberFormatException e) {
             throw new EingabeFehler("Die Y-Koordinate muss eine Zahl sein.");
         }

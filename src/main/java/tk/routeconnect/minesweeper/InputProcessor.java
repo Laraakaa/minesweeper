@@ -11,7 +11,7 @@ class InputProcessor {
     void processInput(BenutzerEingabe eingabe) throws EingabeFehler {
         switch (eingabe.getTyp()) {
             case T:
-                //spielfeld.test(eingabe.getX(), eingabe.getY());
+                spielfeld.test(eingabe.getX(), eingabe.getY());
                 break;
             case M:
 
