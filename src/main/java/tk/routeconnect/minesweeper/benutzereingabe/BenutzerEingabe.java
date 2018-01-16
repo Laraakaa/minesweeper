@@ -6,20 +6,29 @@ public class BenutzerEingabe {
 
         String[] parts = input.split(" ");
 
+        if (parts.length == 0) {
+            throw new EingabeFehler("Leere Zeilen können nicht interpretiert werden.");
+        }
+
+        String typeStr = parts[0];
+
+        EingabeTyp typ;
+        try {
+            typ = EingabeTyp.valueOf(typeStr.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new EingabeFehler("Dieser Typ ist invalid. Bitte wähle entweder 't' zum aufdecken, oder 'm' zum markieren.");
+        }
+
+        if (typ.equals(EingabeTyp.EXIT)) {
+            return new BenutzerEingabe(typ);
+        }
+
         if (parts.length != 3) {
             throw new EingabeFehler("Das Format muss wie folgt angegeben werden: [TYPE] [X] [Y], z.B. 'T 1 1'");
         }
 
-        String typeStr = parts[0];
         String xStr = parts[1];
         String yStr = parts[2];
-
-        EingabeTyp typ;
-        try {
-            typ = EingabeTyp.valueOf(typeStr);
-        } catch (IllegalArgumentException e) {
-            throw new EingabeFehler("Dieser Typ ist invalid. Bitte wähle entweder 't' zum aufdecken, oder 'm' zum markieren.");
-        }
 
         int x;
         try {
@@ -46,6 +55,10 @@ public class BenutzerEingabe {
         this.typ = typ;
         this.x = x;
         this.y = y;
+    }
+
+    private BenutzerEingabe(EingabeTyp typ) {
+        this.typ = typ;
     }
 
     public EingabeTyp getTyp() {

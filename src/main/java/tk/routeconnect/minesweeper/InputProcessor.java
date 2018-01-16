@@ -6,7 +6,11 @@ import tk.routeconnect.minesweeper.spielfeld.Spielfeld;
 
 class InputProcessor {
 
-    Spielfeld spielfeld = new Spielfeld();
+    private Spielfeld spielfeld;
+
+    InputProcessor(Spielfeld spielfeld) {
+        this.spielfeld = spielfeld;
+    }
 
     void processInput(BenutzerEingabe eingabe) throws EingabeFehler {
         switch (eingabe.getTyp()) {

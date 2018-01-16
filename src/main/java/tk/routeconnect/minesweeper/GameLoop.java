@@ -19,8 +19,11 @@ class GameLoop {
         System.out.println("  - Ein Feld testen / aufdecken:");
         System.out.println("  Nutzen Sie den Befehl 'T [X] [Y]' um ein Feld aufzudecken");
 
-        while(true) {
+        while(!userInterface.isCancelled()) {
+            userInterface.display();
             userInterface.read();
         }
+
+        System.out.println("Die Applikation wurde beendet.");
     }
 }
