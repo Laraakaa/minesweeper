@@ -1,5 +1,8 @@
 package tk.routeconnect.minesweeper;
 
+/**
+ * Der GameLoop, startet die Hauptschlaufe (GameLoop)
+ */
 class GameLoop {
 
     private UserInterface userInterface;
@@ -8,6 +11,9 @@ class GameLoop {
         userInterface = new UserInterface();
     }
 
+    /**
+     * Die run() Methode, führt den Spieler in die Spielregeln ein und startet die erste Spielschlaufe
+     */
     void run() {
         System.out.println("----------------------------------");
         System.out.println("      Welcome to MineSweeper      ");
