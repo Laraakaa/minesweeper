@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="55.97500000000005" y="0.0">tk.routeconnect.minesweeper.spielfeld.Zelle</node>
+    <node x="162.62857142857143" y="1024.0">tk.routeconnect.minesweeper.UserInterface</node>
+    <node x="61.72500000000005" y="466.0">tk.routeconnect.minesweeper.spielfeld.Spielfeld</node>
+    <node x="190.0" y="1314.0">tk.routeconnect.minesweeper.GameLoop</node>
+    <node x="20.0" y="866.0">tk.routeconnect.minesweeper.InputProcessor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="tk.routeconnect.minesweeper.GameLoop" target="tk.routeconnect.minesweeper.UserInterface">
+      <point x="-52.75" y="-49.0" />
+      <point x="242.75" y="1294.0" />
+      <point x="264.62857142857143" y="1294.0" />
+      <point x="0.0" y="115.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.GameLoop" target="tk.routeconnect.minesweeper.GameLoop">
+      <point x="0.0" y="49.0" />
+      <point x="295.5" y="1432.0" />
+      <point x="170.0" y="1432.0" />
+      <point x="170.0" y="1363.0" />
+      <point x="-105.5" y="-0.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.UserInterface" target="tk.routeconnect.minesweeper.InputProcessor">
+      <point x="-25.5" y="-115.0" />
+      <point x="239.12857142857143" y="1004.0" />
+      <point x="254.16666666666669" y="1004.0" />
+      <point x="93.66666666666669" y="49.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.spielfeld.Zelle" target="tk.routeconnect.minesweeper.spielfeld.Zelle">
+      <point x="-113.75" y="203.0" />
+      <point x="78.72500000000005" y="426.0" />
+      <point x="35.97500000000005" y="426.0" />
+      <point x="35.97500000000005" y="203.0" />
+      <point x="-136.5" y="-0.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.InputProcessor" target="tk.routeconnect.minesweeper.spielfeld.Spielfeld">
+      <point x="-70.25" y="-49.0" />
+      <point x="90.25" y="846.0" />
+      <point x="153.82500000000005" y="846.0" />
+      <point x="-61.400000000000006" y="170.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.UserInterface" target="tk.routeconnect.minesweeper.spielfeld.Spielfeld">
+      <point x="25.5" y="-115.0" />
+      <point x="290.12857142857143" y="1004.0" />
+      <point x="311.5" y="1004.0" />
+      <point x="311.5" y="846.0" />
+      <point x="276.625" y="846.0" />
+      <point x="61.39999999999998" y="170.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.InputProcessor" target="tk.routeconnect.minesweeper.InputProcessor">
+      <point x="-93.66666666666669" y="49.0" />
+      <point x="66.83333333333331" y="984.0" />
+      <point x="0.0" y="984.0" />
+      <point x="0.0" y="915.0" />
+      <point x="-140.5" y="-0.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.spielfeld.Spielfeld" target="tk.routeconnect.minesweeper.spielfeld.Zelle">
+      <point x="-122.80000000000001" y="-170.0" />
+      <point x="92.42500000000004" y="446.0" />
+      <point x="124.22500000000005" y="446.0" />
+      <point x="-68.25" y="203.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.spielfeld.Zelle" target="tk.routeconnect.minesweeper.spielfeld.Spielfeld">
+      <point x="113.75" y="203.0" />
+      <point x="306.225" y="446.0" />
+      <point x="338.0250000000001" y="446.0" />
+      <point x="122.80000000000001" y="-170.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.spielfeld.Spielfeld" target="tk.routeconnect.minesweeper.spielfeld.Spielfeld">
+      <point x="-122.79999999999998" y="170.0" />
+      <point x="92.42500000000007" y="826.0" />
+      <point x="41.72500000000005" y="826.0" />
+      <point x="41.72500000000005" y="636.0" />
+      <point x="-153.5" y="-0.0" />
+    </edge>
+    <edge source="tk.routeconnect.minesweeper.UserInterface" target="tk.routeconnect.minesweeper.UserInterface">
+      <point x="-68.0" y="115.0" />
+      <point x="196.62857142857143" y="1274.0" />
+      <point x="142.62857142857143" y="1274.0" />
+      <point x="142.62857142857143" y="1139.0" />
+      <point x="-102.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5" x="396.03701685967076" y="743.4833222226891" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
