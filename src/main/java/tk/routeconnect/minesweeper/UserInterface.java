@@ -57,11 +57,17 @@ class UserInterface {
                     return;
                 }
 
-                processor.processInput(eingabe);
+                if (processor.processInput(eingabe)) {
+                    isCancelled = true;
+                }
             } catch (EingabeFehler e) {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    void revealAll() {
+        spielfeld.revealAll();
     }
 
     /**

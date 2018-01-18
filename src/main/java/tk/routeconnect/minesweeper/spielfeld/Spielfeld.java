@@ -52,6 +52,8 @@ public class Spielfeld {
 
             zelle.setBomb(true);
         }
+
+        display(true);
     }
 
     /**
@@ -63,6 +65,10 @@ public class Spielfeld {
      */
     private Zelle getZelle(int x, int y) throws IndexOutOfBoundsException {
         return zellen.get(x).get(y);
+    }
+
+    private boolean isWon() {
+        return zellen.stream().anyMatch(zeile -> zeile.stream().noneMatch(zelle -> (zelle.isBomb() && zelle.isMarked()) || (!zelle.isBomb() && zelle.isRevealed())));
     }
 
     /**
@@ -110,23 +116,50 @@ public class Spielfeld {
      * Testet eine Zelle auf eine Bombe, deckt sie um.
      * @param x X-Koordinate der Zelle (0-Index)
      * @param y Y-Koordinate der Zelle (0-Index)
+     * @return true if the game should end, false oterhwise
      * @throws IndexOutOfBoundsException wenn die Zelle auserhalb des Spielfelds liegt
      */
-    public void test(int x, int y) throws IndexOutOfBoundsException {
+    public boolean test(int x, int y) throws IndexOutOfBoundsException {
         Zelle selected = getZelle(x, y);
 
         if (selected.isRevealed()) {
             System.out.println("Dieses Feld ist schon aufgedeckt!");
-            return;
+            return false;
+        }
+
+        if (selected.isBomb()) {
+            System.out.println("Du bist in eine Bombe gelaufen. Du hast leider verloren :(");
+            return true;
         }
 
         selected.reveal();
+
+        if (!isWon()) {
+            System.out.println("Du hast das Spielfeld freigeräumt und damit gewonnen!");
+            return true;
+        }
+        return false;
+    }
+
+    public void mark(int x, int y) throws IndexOutOfBoundsException {
+        Zelle selected = getZelle(x, y);
+
+        if (selected.isRevealed()) {
+            System.out.println("Dieses Feld wurde bereits aufgedeckt und kann nicht mehr markiert werden.");
+            return;
+        }
+
+        selected.toggleMark();
+    }
+
+    public void display() {
+        display(false);
     }
 
     /**
      * Zeigt das Spielfeld formatiert in der Konsole an.
      */
-    public void display() {
+    public void display(boolean debug) {
         for(int i = -1; i < size; i++) {
             if (i == -1) {
                 System.out.print("   ");
@@ -134,12 +167,20 @@ public class Spielfeld {
                 System.out.print(" " + i + " ");
             }
             for (int j = 0; j < size; j++) {
-                if (i == -1)
+                if (i == -1) {
                     System.out.print(" " + j + " ");
-                else
-                    System.out.print(" " + getZelle(j, i).display() + " ");
+                } else {
+                    System.out.print(" " + getZelle(j, i).display(debug) + " ");
+                }
             }
             System.out.print("\n");
         }
+    }
+
+    /**
+     * Reveals all cells
+     */
+    public void revealAll() {
+        zellen.forEach(zeile -> zeile.forEach(Zelle::reveal));
     }
 }

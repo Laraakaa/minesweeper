@@ -12,11 +12,16 @@ class Zelle {
 
     private boolean isBomb = false;
     private boolean isRevealed = false;
+    private boolean isMarked = false;
 
     Zelle(Spielfeld assignedMatchfield, int x, int y) {
         this.assignedMatchfield = assignedMatchfield;
         this.x = x;
         this.y = y;
+    }
+
+    void toggleMark() {
+        isMarked = !isMarked;
     }
 
     private int getNumberOfSurroundingBombs() {
@@ -25,8 +30,11 @@ class Zelle {
         return cells.size();
     }
 
-    String display() {
-        if (!isRevealed) {
+    String display(boolean debug) {
+        if (isMarked) {
+            return "M";
+        }
+        if (!isRevealed && !debug) {
             return "-";
         }
         if (isBomb) {
@@ -52,6 +60,7 @@ class Zelle {
             return;
         }
         this.isRevealed = true;
+        this.isMarked = false;
 
         ArrayList<Zelle> surroundingFields = assignedMatchfield.getSurroundingFields(this);
         if (surroundingFields.stream().noneMatch(Zelle::isBomb)) {
@@ -65,6 +74,10 @@ class Zelle {
 
     boolean isRevealed() {
         return isRevealed;
+    }
+
+    boolean isMarked() {
+        return isMarked;
     }
 
     int getX() {

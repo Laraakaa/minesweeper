@@ -23,7 +23,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>tk.routeconnect.Main</mainClass>
+                            <mainClass>tk.routeconnect.minesweeper.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -38,6 +38,4 @@
             </plugin>
         </plugins>
     </build>
-
-    
 </project>

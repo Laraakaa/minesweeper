@@ -30,6 +30,10 @@ class GameLoop {
             userInterface.read();
         }
 
+        userInterface.revealAll();
+        System.out.println("Aufgedecktes Spielfeld: ");
+        userInterface.display();
+
         System.out.println("Die Applikation wurde beendet.");
     }
 }
