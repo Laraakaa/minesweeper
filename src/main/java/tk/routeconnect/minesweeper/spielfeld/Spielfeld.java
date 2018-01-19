@@ -53,7 +53,7 @@ public class Spielfeld {
             zelle.setBomb(true);
         }
 
-        display(true);
+        // display(true);
     }
 
     /**
